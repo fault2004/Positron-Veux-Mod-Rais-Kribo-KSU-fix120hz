@@ -1,12 +1,12 @@
-Positron-Veux-Mod-Rais-Kribo-KSU
+Positron-Veux-Mod-Rais-Kribo 1.5
 
 Im using Google Clang
 
 wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r498229b.tar.gz
 
-If u want use Kernelsu ad this first
+If u want use Kernelsu change CONGFIG_KSU=y
 
-curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
+then compile it
 
 FOr Script Compile u can use this one
 
