@@ -1,5 +1,8 @@
 CONFIG_LOCALVERSION="-lineageos"
 ######################################################
+# CONFG KSU AND APATCH
+CONFIG_KALLSYMS=y
+CONFIG_KALLSYMS_ALL=y
 CONFIG_KSU=n
 ######################################################
 # enable adreno driver idle
