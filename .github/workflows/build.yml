@@ -19,3 +19,11 @@ jobs:
         mkdir toolchain && cd toolchain
         tar xf ../clang-r498229b.tar.gz && cd ..
         rm clang-r498229b.tar.gz
+    - name: Build kernel
+      run: |
+        export ARCH=arm64
+        export PATH="$(pwd)/toolchain/bin:$PATH"
+
+        make O=./out veux_defconfig
+        make O=./out -j$(nproc) CC=clang LD=ld.lld AR=llvm-ar AS=llvm-as NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip CROSS_COMPILE=aarch64-linux-gnu- CROSS_COMPILE_ARM32=arm-linux-gnueabi-
+
