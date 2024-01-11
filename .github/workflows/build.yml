@@ -26,4 +26,13 @@ jobs:
 
         make O=./out veux_defconfig
         make O=./out -j$(nproc) CC=clang LD=ld.lld AR=llvm-ar AS=llvm-as NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip CROSS_COMPILE=aarch64-linux-gnu- CROSS_COMPILE_ARM32=arm-linux-gnueabi-
-
+    - name: Moveout kernel
+      run: |
+        mv out/arch/arm64/boot/Image zImage
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: zImage
+        path: |
+          zImage
+        retention-days: 2
