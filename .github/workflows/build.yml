@@ -1,0 +1,23 @@
+name: Build Kernel
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Setup workspace
+      run: |
+        sudo apt-get update
+        sudo apt-get install ccache cpio lld
+    - name: Setup toolchain
+      run: |
+        wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r498229b.tar.gz
+        tar xf clang-r498229b.tar.gz
+        ls
+        rm clang-r498229b.tar.gz
+        mv clang-r498229b toolchain
+        ls
